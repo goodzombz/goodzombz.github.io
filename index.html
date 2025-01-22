@@ -1,46 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn more about Yefet, his story, and his passions.">
-    <title>Meet Yefet</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Updated CSS to move the GIF up */
-        .centered-gif {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full viewport height */
-            transform: translateY(-200px); /* Move the GIF up by 50px */
-        }
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>StickerSmash</title>
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      /* These styles make the body full-height */
+      html,
+      body {
+        height: 100%;
+      }
+      /* These styles disable body scrolling if you are using <ScrollView> */
+      body {
+        overflow: hidden;
+      }
+      /* These styles make the root element full-height */
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
     </style>
-</head>
-<body>
-    <header>
-        <h1>Meet Yefet</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#hobbies">Girlfriends</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <link rel="shortcut icon" href="/favicon.ico" /></head>
 
-    <section id="about">
-        <h2>About Yefet</h2>
-        <p>Yefet is a sigma</p>
-    </section>
-
-    <!-- Centered GIF with upward adjustment -->
-    <div class="centered-gif">
-        <img src="https://cdn.discordapp.com/avatars/804721002847404092/e1ddedf4aa87288624d67d3c07a2ab74?size=1024" alt="A fun GIF of Yefet">
-    </div>
-
-    <footer>
-        <!-- Other footer content can go here if needed -->
-    </footer>
+  <body>
+    <!-- Use static rendering with Expo Router to support running without JavaScript. -->
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <!-- The root element for your Expo app. -->
+    <div id="root"></div>
+  <script src="/_expo/static/js/web/index-bba28e7b0e2a91397d5836457da321ec.js" defer></script>
 </body>
 </html>
