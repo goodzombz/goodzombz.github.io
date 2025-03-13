@@ -1,87 +1,104 @@
-/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f5f5f5;
-    color: #333;
-}
-
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-h1, h2 {
-    color: #4CAF50;
-}
-
-section {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-ul {
-    padding-left: 20px;
-}
-
-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
 
-form label {
-    margin: 10px 0 5px;
+#game-container {
+    position: relative;
+    margin: 20px;
 }
 
-form input, form textarea {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 75px);
+    grid-template-rows: repeat(8, 75px);
+    border: 3px solid #333;
+    background: #fff;
 }
 
-form button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
+.square {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.black {
+    background-color: #666;
+}
+
+.white {
+    background-color: #fff;
+}
+
+.piece {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    border: 2px solid #333;
 }
 
-form button:hover {
-    background-color: #45a049;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #4CAF50;
+.red {
+    background-color: #ff4444;
     color: white;
+}
+
+.blue {
+    background-color: #4444ff;
+    color: white;
+}
+
+.king::after {
+    content: "♔";
+    position: absolute;
+    color: gold;
+    font-size: 24px;
+    top: -8px;
+}
+
+#turn-display {
+    margin: 10px;
+    font-size: 24px;
+}
+
+.modal {
+    display: none;
     position: fixed;
-    width: 100%;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 2px solid #333;
+    z-index: 1000;
+    max-width: 500px;
+    text-align: center;
+}
+
+.modal button {
+    margin: 10px;
+    padding: 5px 15px;
+    font-size: 16px;
+}
+#initial-buttons, #answer-buttons {
+    margin-top: 20px;
+}
+
+.modal-content {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
