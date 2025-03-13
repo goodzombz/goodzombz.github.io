@@ -3,44 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn more about Yefet, his story, and his passions.">
-    <title>Meet Yefet</title>
+    <title>Checkers Game</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Updated CSS to move the GIF up */
-        .centered-gif {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full viewport height */
-            transform: translateY(-200px); /* Move the GIF up by 50px */
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <h1>Meet Yefet</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#hobbies">Girlfriends</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="about">
-        <h2>About Yefet</h2>
-        <p>Yefet is a sigma</p>
-    </section>
-
-    <!-- Centered GIF with upward adjustment -->
-    <div class="centered-gif">
-        <img src="https://cdn.discordapp.com/avatars/804721002847404092/e1ddedf4aa87288624d67d3c07a2ab74?size=1024" alt="A fun GIF of Yefet">
+    <div id="turn-display">Current Turn: Blue</div>
+    <div id="game-container">
+        <div id="board"></div>
     </div>
 
-    <footer>
-        <!-- Other footer content can go here if needed -->
-    </footer>
+    <!-- Question Modal -->
+    <div id="question-modal" class="modal">
+        <div id="question-text"></div>
+        <div id="initial-buttons">
+            <button onclick="proceedToAnswer()">Continue</button>
+        </div>
+        <div id="answer-buttons" style="display: none;">
+            <button onclick="handleAnswer(true)">Correct</button>
+            <button onclick="handleAnswer(false)">Incorrect</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
