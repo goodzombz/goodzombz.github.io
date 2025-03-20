@@ -31,6 +31,7 @@ class Checkers {
         this.midPiecePosition = null;
         this.initializeBoard();
         this.createBoardUI();
+        this.setupDebugging(); // הוספת פונקציה להגדרת דיבגינג
     }
 
     initializeBoard() {
@@ -230,6 +231,12 @@ class Checkers {
         document.getElementById('answer-buttons').style.display = 'none';
         
         if (correct) {
+            // Remove the answered question from the list
+            const currentQuestion = document.getElementById('question-text').textContent;
+            const questionIndex = questions.indexOf(currentQuestion);
+            if (questionIndex !== -1) {
+                questions.splice(questionIndex, 1); // Remove the question from the list
+            }
             this.completeMove();
         } else {
             this.currentTurn = this.currentTurn === 'B' ? 'R' : 'B';
@@ -240,6 +247,18 @@ class Checkers {
             this.midPiecePosition = null;
             this.createBoardUI();
         }
+    }
+
+    // פונקציה להגדרת דיבגינג
+    setupDebugging() {
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'd' || event.key === 'D') { // מקש D
+                console.log("רשימת השאלות:");
+                questions.forEach((question, index) => {
+                    console.log(`${index + 1}: ${question}`);
+                });
+            }
+        });
     }
 }
 
