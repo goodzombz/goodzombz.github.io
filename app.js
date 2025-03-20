@@ -167,6 +167,42 @@ class Checkers {
 
         this.pendingMove = null;
         this.createBoardUI();
+
+        // Check for a winner after the move
+        this.checkForWinner();
+    }
+
+    checkForWinner() {
+        const bluePieces = this.countPieces('B');
+        const redPieces = this.countPieces('R');
+
+        if (bluePieces === 0) {
+            this.showWinner('Red');
+        } else if (redPieces === 0) {
+            this.showWinner('Blue');
+        }
+    }
+
+    countPieces(color) {
+        let count = 0;
+        for (let row = 0; row < 8; row++) {
+            for (let col = 0; col < 8; col++) {
+                if (this.board[row][col] && this.board[row][col].color === color) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    showWinner(winner) {
+        const winnerDisplay = document.createElement('div');
+        winnerDisplay.className = 'winner-display';
+        winnerDisplay.textContent = `${winner} ניצחון!`;
+        document.body.appendChild(winnerDisplay);
+
+        // Disable further moves
+        this.capturePending = true;
     }
 
     showQuestion() {
@@ -196,9 +232,9 @@ class Checkers {
         if (correct) {
             this.completeMove();
         } else {
-        this.currentTurn = this.currentTurn === 'B' ? 'R' : 'B';
-        document.getElementById('turn-display').textContent = 
-            `Current Turn: ${this.currentTurn === 'B' ? 'Blue' : 'Red'}`;
+            this.currentTurn = this.currentTurn === 'B' ? 'R' : 'B';
+            document.getElementById('turn-display').textContent = 
+                `Current Turn: ${this.currentTurn === 'B' ? 'Blue' : 'Red'}`;
 
             this.pendingMove = null;
             this.midPiecePosition = null;
